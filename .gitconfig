@@ -66,15 +66,15 @@
 [alias]
 	ci = commit
 	cim = commit -m
+	cia = !git add -A && git commit # add/update everything and commit
+	ciam = !git add -A && git commit -m 
 	st = status -sb
 	oops = commit --amend --no-edit
+	aoops = add -A && commit --amend --no-edit
 	branch-name = "!git rev-parse --abbrev-ref HEAD"
 	publish = "!git push -u origin $(git branch-name)"
 	unpublish = "!git push origin :$(git branch-name)"
-	aoops = add -A && commit --amend --no-edit
 	commit-all = !git add -A && git commit # long version
-	cia = !git add -A && git commit # add/update everything and commit
-	ciam = !git add -A && git commit -m 
 	this = !git init && git add . && git commit -m \"initial commit\" #
 	unstage = reset HEAD -- # Unstage a specific file
 	last = log -1 HEAD # Show last commit
@@ -94,6 +94,8 @@
 	up = "!git remote update -p; git merge --ff-only @{u}"
 	wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
 	update = !git pull && git submodule update --init --recursive
+	d = checkout develop
+	m = checkout master
 
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
