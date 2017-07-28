@@ -96,7 +96,8 @@
 	update = !git pull && git submodule update --init --recursive
 	d = checkout develop
 	m = checkout master
-
+	su = submodule update --init --recursive
+	
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
 
