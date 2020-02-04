@@ -21,6 +21,16 @@ alias webip='curl ipecho.net/plain; echo'
 alias h?="history | grep"
 alias lport="sudo lsof -i"
 
+listening() {
+    if [ $# -eq 0 ]; then
+        sudo lsof -iTCP -sTCP:LISTEN -n -P
+    elif [ $# -eq 1 ]; then
+        sudo lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color $1
+    else
+        echo "Usage: listening [pattern]"
+    fi
+}
+
 alias gprune=pruneremotebranches
 pruneremotebranches() {
   git branch -r --merged | 
